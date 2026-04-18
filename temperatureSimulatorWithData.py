@@ -7,7 +7,7 @@ possible_Changes = [-5,-4,-4,-3,-3,-3,-2,-2,-1,0,1,2,2,3,3,3,4,4,5]
 def load_data():
     temperatures.clear()
     try:
-        f1 = open("April 16th/temps.txt", "r")
+        f1 = open("temps.txt", "r")
         stringTemps = f1.readlines()
         for temp in stringTemps:
             temperatures.append(float(temp))
@@ -15,7 +15,7 @@ def load_data():
         pass
 
 def save_data():
-    f2 = open("April 16th/temps.txt", "w")
+    f2 = open("temps.txt", "w")
     for i in range(len(temperatures)):
         f2.write(f"{temperatures[i]}\n")
 
