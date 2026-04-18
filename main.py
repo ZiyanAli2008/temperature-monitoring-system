@@ -1,3 +1,7 @@
+# Temperature Monitoring System
+# Simulates, stores, and analyzes temperature readings
+# Created by Ziyan Ali
+
 import random
 
 global temperatures
@@ -5,24 +9,28 @@ temperatures = []
 possible_Changes = [-5,-4,-4,-3,-3,-3,-2,-2,-1,0,1,2,2,3,3,3,4,4,5]
 
 def load_data():
+    '''Clear the current temperature list and load all temperatures from the file onto the list'''
     temperatures.clear()
     try:
-        f1 = open("temps.txt", "r")
-        stringTemps = f1.readlines()
+        input_file = open("April 16th/temps.txt", "r")
+        stringTemps = input_file.readlines()
         for temp in stringTemps:
             temperatures.append(float(temp))
     except FileNotFoundError:
         pass
 
 def save_data():
-    f2 = open("temps.txt", "w")
+    '''Take all the temperatures from the current temperature list and add them to the temperature file'''
+    output_file = open("April 16th/temps.txt", "w")
     for i in range(len(temperatures)):
-        f2.write(f"{temperatures[i]}\n")
+        output_file.write(f"{temperatures[i]}\n")
 
 def look_for_trend(a, b):
+    '''Look to see if any trend occurs in simulation or manually adding input values'''
     return (b > a), (a > b), (abs(b-a) >= 5)
 
 def parse_temperature_input(prompt):
+    '''Make sure input values are valid inputs'''
     while True:
         value = input(prompt)
 
